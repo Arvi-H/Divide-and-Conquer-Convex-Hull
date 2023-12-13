@@ -64,7 +64,7 @@ class ConvexHullSolver(QObject):
         assert( type(points) == list and type(points[0]) == QPointF )
 
         sortedPoints = sorted(points, key=lambda point: point.x())
-        
+         
         t3 = time.time()
         polygon = self.convex_hull(self.divide_and_conquer(sortedPoints))
         t4 = time.time()
@@ -72,7 +72,7 @@ class ConvexHullSolver(QObject):
         # when passing lines to the display, pass a list of QLineF objects.  Each QLineF
         # object can be created with two QPointF objects corresponding to the endpoints
         self.showHull(polygon, BLUE)
-        self.showText('Time Elapsed (Convex Hull): {:3.3f} sec'.format(t4-t3))
+        self.showText('Time Elapsed (Convex Hull): {:3.6f} sec'.format(t4-t3))
 
     # This function takes in a polygon represented as a list of points and returns the convex hull of the polygon 
     # It does this by creating a line between each sequential pair of points in the polygon 
